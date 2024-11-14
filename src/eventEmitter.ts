@@ -49,6 +49,14 @@ class MyEventEmitter {
   listAllEventsName() {
     return Object.keys(this.events);
   }
+
+  off(name: string) {
+    if (this.events[name]) {
+      this.removeEvents(name);
+    } else {
+      throw new Error("Event not existed.");
+    }
+  }
 }
 
 export { MyEventEmitter };
