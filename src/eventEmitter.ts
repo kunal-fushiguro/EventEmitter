@@ -9,7 +9,7 @@ class MyEventEmitter {
     if (!this.events[name]) {
       this.events[name] = fn;
     } else {
-      throw new Error("Event already added.");
+      throw new Error("Event already existed.");
     }
   }
 
@@ -27,6 +27,23 @@ class MyEventEmitter {
     } else {
       throw new Error("Event not existed.");
     }
+  }
+
+  private removeEvents(name: string) {
+    if (this.events[name]) {
+      delete this.events[name];
+    } else {
+      throw new Error("Event not existed.");
+    }
+  }
+
+  once(name: string, fn: Function) {
+    const onceWrapper = (...args: any[]) => {
+      fn(...args);
+      this.removeEvents(name);
+    };
+
+    this.addEvent(name, onceWrapper);
   }
 }
 

@@ -6,7 +6,7 @@ example.on("foo", (msg: string, msg2: string) => {
   console.log("Event occuured , MSG : ", msg, msg2);
 });
 
-example.on("boo", () => {
+example.once("boo", () => {
   console.log("hello");
 });
 
