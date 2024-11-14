@@ -45,6 +45,10 @@ class MyEventEmitter {
 
     this.addEvent(name, onceWrapper);
   }
+
+  listAllEventsName() {
+    return Object.keys(this.events);
+  }
 }
 
 export { MyEventEmitter };

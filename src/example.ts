@@ -9,6 +9,7 @@ example.on("foo", (msg: string, msg2: string) => {
 example.once("boo", () => {
   console.log("hello");
 });
+console.log(example.listAllEventsName());
 
 example.emit("foo", "hello", "world");
 
